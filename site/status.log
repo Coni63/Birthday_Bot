@@ -1,0 +1,7 @@
+2019-01-04 17:54:35,537 [INFO] Querying list of celebrities
+2019-01-04 17:54:35,551 [INFO] Parsing list of celebrities (len = 11)
+2019-01-04 17:54:35,551 [INFO] Posting message (total : 3)
+2019-01-04 17:55:16,766 [INFO] Querying list of celebrities
+2019-01-04 17:55:16,767 [INFO] Parsing list of celebrities (len = 11)
+2019-01-04 17:55:16,767 [INFO] Posting message (total : 3)
+2019-01-04 17:55:16,768 [INFO] Script finalized with success
