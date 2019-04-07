@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Nicolas MINE">
+
+        <title>Acceuil</title>
+
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2>Liste des célébrités</h2>
+                <h4>Voici la liste actuelle validée. Pour le moment, je n'affiche que les célébrités Françaises mais la base à plus de données (environ 6000 célébrités). <br>De même l'anniversaire n'est souhaité qu'aux célébrités Francaises (évoluera surement)</h4>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nom Prénom</th>
+                      <th scope="col">Twitter</th>
+                      <th scope="col">Pays</th>
+                      <th scope="col">Date de naissance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   {% for name, twitter, country, birthday in results %}
+                    <tr>
+                      <th scope="row">{{ loop.index0 }}</th>
+                      <td>{{ name }}</td>
+                      <td>{{ twitter }}</td>
+                      <td>{{ country }}</td>
+                      <td>{{ birthday }}</td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+                <div class="text-center">
+                    <a href="/" class="btn btn-primary btn-lg" role="button">Retour au Menu</a>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</html>

@@ -5,7 +5,7 @@ import sqlite3
 import tweepy
 import datetime
 import logging
-
+import random
 
 def get_list(date):
     date = "%%%%" + date[4:]
@@ -22,6 +22,13 @@ def get_list(date):
 
 
 def process(users):
+    sentences = [
+        "Aujourd'hui est un jour important, c'est l'anniversaire de {}. Joyeux anniversaire {} ! \N{birthday cake}",
+        "Une bougie de plus pour {}. Bon anniversaire {} ! \N{birthday cake}",
+        "En ce grand jour, un petit \N{Wrapped Present} pour {}. Joyeux anniversaire {} ! \N{birthday cake}",
+        "Une pensée bien spéciale pour l’anniversaire de {}. Bon anniversaire {} ! \N{birthday cake}",
+        "En ce jour particulier, c'est l'anniversaire de {}. Joyeux anniversaire {} ! \N{birthday cake}",
+    ]
     queue = []
     with_account = []
     without_account = []
@@ -32,8 +39,8 @@ def process(users):
             without_account.append(user[1].strip())
 
     for user, acc in with_account:
-        txt = "Aujourd'hui est un jour important, c'est l'anniversaire de {}. Joyeux anniversaire {} ! \N{birthday cake}".format(
-            user, acc)
+        sentence = random.choice(sentences)
+        txt = sentence.format(user, acc)
         queue.append(txt)
 
     txt = "Et c'est aussi l'anniversaire de :\n{}".format(
@@ -78,5 +85,6 @@ if __name__ == "__main__":
     list_tweets = process(list_user)
     logging.info('Posting message (total : {})'.format(len(list_tweets)))
     login = getKey()
+    #print(list_tweets)
     post(list_tweets, **login)
     logging.info('Script finalized with success')
