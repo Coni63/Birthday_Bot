@@ -1,11 +1,29 @@
 import sqlite3
 import re
+import datetime
 
 from flask import Flask
 from flask import render_template
 from flask import request
 
 app = Flask(__name__)
+
+def get_list():
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    today = "%%%%" + today[4:]
+    conn = sqlite3.connect('databases/birthday.db')
+    c = conn.cursor()
+    c.execute('SELECT name, twitter FROM birthday WHERE birthday LIKE ? AND country = "France" ORDER BY Name', (today,))
+    result = c.fetchall()
+    conn.close()
+    txt = "Today is the birthday of : <br><ul>"
+    for name, twitter in result:
+        if len(twitter) > 0:
+            txt += "<li>{} (<a href=\"https://twitter.com/{}\">{}</a>)</li>".format(name, twitter, twitter)
+        else:
+            txt += "<li>{}</li>".format(name)
+    txt += "</ul>"
+    return txt
 
 @app.route('/add/', methods=['POST'])
 def add_people():
@@ -38,6 +56,10 @@ def listing():
     results = c.fetchall()
     conn.close()
     return render_template('listing.html', results = results)
+
+@app.route('/api/')
+def getInfo():
+    return str(get_list())
 
 @app.route('/')
 def index():

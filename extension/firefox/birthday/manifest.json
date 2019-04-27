@@ -1,0 +1,24 @@
+{
+	"manifest_version": 2,
+	"name": "Birthday",
+	"version": "1.0",
+	"description": "Shows birthday directly on a popup window",
+	"icons": {
+		"48": "icons/icon48.png",
+		"96": "icons/icon96.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"16": "icons/icon16.png",
+			"32": "icons/icon32.png"
+		},
+		"default_popup": "popup/popup.html",
+		"default_title": "Birthday"
+	},
+	"permissions": [
+		"http://127.0.0.1/*",
+		"http://localhost/*",
+		"http://nicolasmine.pythonanywhere.com/*"
+	]
+
+}

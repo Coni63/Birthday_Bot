@@ -5,3 +5,15 @@
 2019-01-04 17:55:16,767 [INFO] Parsing list of celebrities (len = 11)
 2019-01-04 17:55:16,767 [INFO] Posting message (total : 3)
 2019-01-04 17:55:16,768 [INFO] Script finalized with success
+2019-04-06 10:51:24,953 [INFO] Querying list of celebrities
+2019-04-06 10:51:24,987 [INFO] Parsing list of celebrities (len = 5)
+2019-04-06 10:51:24,987 [INFO] Posting message (total : 4)
+2019-04-06 10:51:24,991 [INFO] Script finalized with success
+2019-04-06 10:51:44,365 [INFO] Querying list of celebrities
+2019-04-06 10:51:44,367 [INFO] Parsing list of celebrities (len = 5)
+2019-04-06 10:51:44,367 [INFO] Posting message (total : 4)
+2019-04-06 10:51:44,367 [INFO] Script finalized with success
+2019-04-06 10:52:00,153 [INFO] Querying list of celebrities
+2019-04-06 10:52:00,155 [INFO] Parsing list of celebrities (len = 5)
+2019-04-06 10:52:00,155 [INFO] Posting message (total : 4)
+2019-04-06 10:52:00,156 [INFO] Script finalized with success
